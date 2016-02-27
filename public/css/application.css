@@ -1,0 +1,132 @@
+* li {
+  list-style: none;
+}
+body {
+  background-color: #0f7866;
+  height: 100vh;
+  font-family: 'Hind', sans-serif;
+
+}
+
+header {
+  background-color: #c90000;
+  padding: 30px 15px;
+}
+
+header a, header h1 {
+  text-decoration: none;
+  color: #f9fffc;
+}
+
+#home-link {
+  text-shadow: 7px 7px black;
+  font-family: 'Maven Pro', sans-serif;
+  font-weight: 900;
+  font-size: 82px;
+}
+
+nav {
+  display: inline-block;
+  float: right;
+}
+
+nav a {
+  padding: 7px;
+  font-size: 20px;
+  text-shadow: 3px 3px black;
+}
+
+/*Index Page*/
+
+#main-page {
+  margin: 10px 25%;
+  /*text-align: center;*/
+  background-color: white;
+  display: inline-block;
+  width: auto;
+}
+
+#main-page button {
+  padding: 20px;
+  box-shadow: 3px 3px 3px 3px white;
+  background-color: #01a78a;
+}
+
+#login_form, #registration_form {
+  display: none;
+  background-color: #01a78a;
+}
+
+#all-series-header {
+  font-size: 48px;
+  text-align: center;
+  margin: 30px auto;
+}
+.wrapper {
+  margin: 20px;
+  height: 100vh;
+}
+
+#list-series {
+  /*background-color: white;*/
+  margin: 10px 10px;
+  padding: 15px;
+}
+
+.front-page-series {
+  width: 300px;
+  height: 550px;
+  display: inline-block;
+  font-size: 20px;
+  margin: 5px 10px;
+  /*position: absolute;*/
+  top: 0px;
+}
+
+.add-new-subscription input {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 25%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/*User Profile Page*/
+
+#queue {
+  font-size: 24px;
+}
+.issues-in-list {
+  display: inline-block;
+  margin: 10px 25px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  transition: all .2s ease-in-out;
+}
+
+.issues-in-list:hover {
+  transform: scale(1.25);
+}
+
+.series-in-queue {
+  margin-top: 15px;
+}
+
+.series-title {
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+

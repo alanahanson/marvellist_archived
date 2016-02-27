@@ -1,0 +1,50 @@
+<section id='main-page'>
+
+<form method="post" action="/login" id="login_form">
+  <input type="text" name="username" placeholder="username">
+  <input type="password" name="password" placeholder="password">
+  <input type="submit" value="Log In">
+</form>
+
+<% if @failed_login %>
+    <p>Your username or password was entered incorrectly.</p>
+<% end %>
+
+ <form method='post' action='/users' id='registration_form'>
+   <input type='text' name='username' placeholder='username' />
+   <input type='password' name='password' placeholder='password' />
+   <input type='submit' value='Sign Up' />
+ </form>
+
+ <% if @errors %>
+   <%  @errors.each do |error_message| %>
+     <p><%= error_message %></p>
+   <% end %>
+ <% end %>
+ </section>
+
+<section id='list-series'>
+<h2 id='all-series-header'>Available Series</h2>
+
+<ul>
+  <% @series.each do |series| %>
+    <li class='front-page-series'>
+      <p>
+            <h2><%= series.title %></h2>
+            <h3><%= series.num_issues  %> issues</h3>
+
+      </p>
+            <a href="<%= series.link %>">
+<img src="<%= series.issues.last.thumbnail %>" alt="Comic!" width="300" height="400" border="0">
+</a>
+<% if current_user && !(current_user.series.include?(series)) %>
+            <form action='/subscribe/<%= series.id %>' method='post' class='add-new-subscription'>
+              <input type="submit" value="Subscribe">
+            </form>
+
+            <% end %>
+    </li>
+  <% end %>
+</ul>
+
+</section>

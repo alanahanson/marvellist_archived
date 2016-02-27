@@ -1,0 +1,25 @@
+<div class='wrapper'>
+  <h2 id='queue'>Your Queue</h2>
+
+<% @user.series.each %>
+<ul>
+    <% @user.series.each do |series| %>
+      <li class="series-in-queue">
+        <p class='series-title'><%= series.title %></p>
+        <ul>
+        <% series.issues.order(:issue_number).limit(10).each do |issue| %>
+          <li class='issues-in-list'>
+            <a href="<%= issue.url %>">
+<img src="<%= issue.thumbnail %>" alt="Comic!" width="150" height="200" border="0">
+</a>
+            <p>Issue #<%= issue.issue_number %></p>
+            <p><%= issue.on_sale_date %></p>
+
+          </li>
+        <% end %>
+      </ul>
+      </li>
+
+    <% end %>
+</ul>
+</div>
