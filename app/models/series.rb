@@ -3,7 +3,7 @@ require 'json'
 
 class Series < ActiveRecord::Base
   has_many :issues
-  AUTH_KEY = "66be3651c789717274dfcfe7ce6b4b32"
+  AUTH_KEY = ENV["MARVEL_API_KEY"]
 
   def self.get_marvel_data(series_id)
     url = "http://gateway.marvel.com:80/v1/public/series/#{series_id}?apikey=#{AUTH_KEY}"
