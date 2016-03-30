@@ -14,7 +14,7 @@ post '/users' do
 end
 
 get '/users/:id' do
-  @user = User.find(params[:id])
+  @series = Series.browse_series
   erb :'users/show'
 end
 

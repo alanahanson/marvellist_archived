@@ -1,5 +1,4 @@
 get '/' do
-  @series = Series.all
   erb :index
 end
 
