@@ -1,25 +1,24 @@
-<div class='wrapper'>
-  <h2 id='queue'>Your Queue</h2>
+<section id='list-series'>
+  <h2 id='all-series-header'>Browse Series</h2>
 
-<% @user.series.each %>
-<ul>
-    <% @user.series.each do |series| %>
-      <li class="series-in-queue">
-        <p class='series-title'><%= series.title %></p>
-        <ul>
-        <% series.issues.order(:issue_number).limit(10).each do |issue| %>
-          <li class='issues-in-list'>
-            <a href="<%= issue.url %>">
-<img src="<%= issue.thumbnail %>" alt="Comic!" width="150" height="200" border="0">
-</a>
-            <p>Issue #<%= issue.issue_number %></p>
-            <p><%= issue.on_sale_date %></p>
+  <ul>
+    <% @series.each do |series| %>
+      <li class='front-page-series'>
+        <p>
+          <h2><%= series["title"] %></h2>
+          <h3><%= series["num_issues"]  %> issues</h3>
+        </p>
+          <a href="<% series["link"] %>">
+            <img src="<%# series.issues.last.thumbnail %>" alt="Comic!" width="150" height="200" border="0">
+  </a>
+  <% if current_user && !(current_user.series.include?(series)) %>
+              <form action='/subscribe/<%= series["id"] %>' method='post' class='add-new-subscription'>
+                <input type="submit" value="Subscribe">
+              </form>
 
-          </li>
-        <% end %>
-      </ul>
+              <% end %>
       </li>
-
     <% end %>
-</ul>
-</div>
+  </ul>
+
+</section>--

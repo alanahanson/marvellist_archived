@@ -13,6 +13,15 @@ class Series < ActiveRecord::Base
     JSON.parse(file.read)["data"]["results"][0]
   end
 
+  def self.browse_series
+    url = "http://gateway.marvel.com:80/v1/public/series?limit=100&apikey=#{AUTH_KEY}"
+    referer = "localhost"
+    options = {"Referer" => referer}
+    file = open(url, options)
+    JSON.parse(file.read)["data"]["results"]
+
+  end
+
   def get_issues
     url = "http://gateway.marvel.com:80/v1/public/series/#{series_id}/comics?formatType=comic&noVariants=true&orderBy=onsaleDate&limit=100&apikey=#{AUTH_KEY}"
     referer = "localhost"
