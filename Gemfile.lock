@@ -29,6 +29,8 @@ GEM
       activesupport (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    haml (4.0.7)
+      tilt
     i18n (0.7.0)
     json (1.8.2)
     mime-types (2.4.3)
@@ -89,6 +91,7 @@ DEPENDENCIES
   capybara
   factory_girl
   faker
+  haml
   pg
   rack-test
   rake
@@ -97,6 +100,3 @@ DEPENDENCIES
   shoulda-matchers
   sinatra
   sinatra-contrib
-
-BUNDLED WITH
-   1.11.2
