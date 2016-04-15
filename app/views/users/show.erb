@@ -5,12 +5,10 @@
     <% @series.each do |series| %>
       <li class='front-page-series'>
         <p>
-          <h2><%= series["title"] %></h2>
+          <a href="<% series["link"] %>"><%= series["title"] %></a>
           <h3><%= series["num_issues"]  %> issues</h3>
         </p>
-          <a href="<% series["link"] %>">
-            <img src="<%# series.issues.last.thumbnail %>" alt="Comic!" width="150" height="200" border="0">
-  </a>
+
   <% if current_user && !(current_user.series.include?(series)) %>
               <form action='/subscribe/<%= series["id"] %>' method='post' class='add-new-subscription'>
                 <input type="submit" value="Subscribe">
