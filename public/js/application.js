@@ -1,11 +1,11 @@
 $(document).ready(function() {
-  $("header").on("click", "#sign-up-link", function (event) {
+  $("body").on("click", "#sign-up-link", function (event) {
     event.preventDefault();
     $("#registration_form").toggle();
 
   })
 
-  $("header").on("click", "#log-in-link", function (event) {
+  $("body").on("click", "#log-in-link", function (event) {
     event.preventDefault();
     $("#login_form").toggle();
   })

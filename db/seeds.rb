@@ -1,15 +1,20 @@
 require 'open-uri'
 require 'json'
+require 'digest/md5'
 
 series_to_add = [19750, 2258, 17113, 17602, 20622, 18468, 16410, 9311, 18457]
 AUTH_KEY = ENV["MARVEL_API_KEY"]
 
+
 def get_marvel_data(series_id)
-    url = "http://gateway.marvel.com:80/v1/public/series/#{series_id}?apikey=#{AUTH_KEY}"
-    referer = "localhost"
-    options = {"Referer" => referer}
-    file = open(url, options)
-    JSON.parse(file.read)["data"]["results"][0]
+  public_key = "66be3651c789717274dfcfe7ce6b4b32"
+  ts = Time.now.to_i
+  md5hash = Digest::MD5.hexdigest("#{ts.to_s}#{AUTH_KEY}#{public_key}")
+  url = "http://gateway.marvel.com:80/v1/public/series/#{series_id}?ts=#{ts}&apikey=#{public_key}&hash=#{md5hash}"
+  referer = "localhost"
+  options = {"Referer" => referer}
+  file = open(url, options)
+  JSON.parse(file.read)["data"]["results"][0]
 end
 
 series_to_add.each do |series_id|
