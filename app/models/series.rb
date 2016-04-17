@@ -20,7 +20,7 @@ class Series < ActiveRecord::Base
     public_key = "66be3651c789717274dfcfe7ce6b4b32"
     ts = Time.now.to_i
     md5hash = Digest::MD5.hexdigest("#{ts.to_s}#{AUTH_KEY}#{public_key}")
-    url = "http://gateway.marvel.com:80/v1/public/series/#{series_id}?ts=#{ts}&apikey=#{public_key}&hash=#{md5hash}"
+    url = "http://gateway.marvel.com:80/v1/public/series?contains=comic&orderBy=title&ts=#{ts}&apikey=#{public_key}&hash=#{md5hash}"
     referer = "localhost"
     options = {"Referer" => referer}
     file = open(url, options)

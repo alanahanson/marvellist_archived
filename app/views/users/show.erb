@@ -3,18 +3,16 @@
 
   <ul>
     <% @series.each do |series| %>
-      <li class='front-page-series'>
+      <li class='add-series'>
         <p>
           <a href="<% series["link"] %>"><%= series["title"] %></a>
-          <h3><%= series["num_issues"]  %> issues</h3>
         </p>
 
-  <% if current_user && !(current_user.series.include?(series)) %>
-              <form action='/subscribe/<%= series["id"] %>' method='post' class='add-new-subscription'>
-                <input type="submit" value="Subscribe">
-              </form>
-
-              <% end %>
+        <% if current_user && !(current_user.series.include?(series)) %>
+          <form action='/subscribe/<%= series["id"] %>' method='post' class='add-new-subscription'>
+            <input type="submit" value="Subscribe">
+          </form>
+        <% end %>
       </li>
     <% end %>
   </ul>
