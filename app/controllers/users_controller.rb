@@ -19,4 +19,8 @@ class UsersController < ApplicationController
 
 	def destroy
 	end
+
+	def queue
+		render :queue
+	end
 end
