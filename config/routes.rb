@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'login'
-
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
-
+  root 'pages#home'
 
   resources :users, :subscriptions
   
